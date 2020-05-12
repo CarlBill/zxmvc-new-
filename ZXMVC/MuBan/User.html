@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="css/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+                        <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">智信</strong><strong>车贷管理系统</strong></div>
+                        <div class="brand-text brand-sm"><strong class="text-primary">智</strong><strong>信</strong></div>
+                    </a>
+                    <!-- Sidebar Toggle Btn-->
+                    <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+                </div>
+                <!-- Megamenu end     -->
+                <!-- Log out               -->
+                <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link"> <span class="d-none d-sm-inline">退出 </span><i class="icon-logout"></i></a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h5"><span id="name"></span></h1>
+                    <p>管理员</p>
+                </div>
+            </div>
+            <ul class="list-unstyled">
+                <li><a href="index.html"><i  data-icon="f" class="icon"></i>仪表盘 </a></li>
+                <li><a href="shen.html"><i class="icon-settings"></i>审核员管理</a></li>
+                <li class="active"><a href="user.html"><i class="icon icon-user-outline"></i>客户信息</a></li>
+                <li><a href="userInfo.html"> <i class="icon-grid"></i>客户贷款信息 </a></li>
+            </ul>
+        </nav>
+        <!-- Sidebar Navigation end-->
+        <div class="page-content">
+            <!-- Page Header-->
+            <div class="page-header no-margin-bottom">
+                <div class="container-fluid">
+                    <h2 class="h5 no-margin-bottom">Customer Management</h2>
+                </div>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">角色管理</a></li>
+                    <li class="breadcrumb-item active">客户管理        </li>
+                </ul>
+            </div>
+            <div>
+                客户名称：<input id="name" type="text" class="input-search"/>真实姓名：<input id="tname" type="text" class="input-search"/><input id="Button1" type="button" value="查询" class="btn btn-info"/>
+                <br />
+                <table class="table" style="text-align:center;border:double;font-size:13px" border="1">
+                    <thead>
+                        <tr style="color:lightsalmon">
+                            <th>编号</th>
+                            <th>客户名称</th>
+                            <th>真实姓名</th>
+                            <th>电话号</th>
+                            <th>注册时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tb" style="color:cadetblue">
+                    </tbody>
+                </table>
+            </div>
+            <footer class="footer">
+                <div class="footer__block block no-margin-bottom">
+                    <div class="container-fluid text-center">
+                        <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        <p class="no-margin-bottom">Copyright &copy; 2019.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/front.js"></script>
+</body>
+</html>
+<script>
+    $(function () {
+        var n = getCookie("uName");
+        $("#name").text(n);
+        load();
+    })
+
+    // 我们定义一个函数，用来读取特定的cookie值。［得到指定名字的cookie对象哦！］
+    function getCookie(name) {
+        var strCookie = document.cookie;
+        var arrCookie = strCookie.split("; ");
+        for (var i = 0; i < arrCookie.length; i++) {
+            var arr = arrCookie[i].split("=");
+            if (arr[0] == name) return arr[1];
+        }
+        return "";
+    }
+
+
+    function load() {
+        $.ajax({
+            url: "https://localhost:44356/api/ZXLoan/GetUser?name=" + $("#name").val() + "&tname=" + $("#tname").val(),
+            type: "post",
+            success: function (d) {
+                $("#tb").empty();
+                $(d).each(
+                    function () {
+                        var line = '<tr>'
+                            + '<td>' + this.RowID + '</td>'
+                            + '<td>' + this.Uname + '</td>'
+                            + '<td>' + this.Utname + '</td>'
+                            + '<td>' + this.Utel + '</td>'
+                            + '<td>' + this.Utime + '</td>'
+                            + '</tr>'
+                        $("#tb").append(line);
+                    }
+                )
+            }
+        })
+    }
+</script>

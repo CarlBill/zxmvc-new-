@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="css/font.css">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+                        <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">智信</strong><strong>车贷管理系统</strong></div>
+                        <div class="brand-text brand-sm"><strong class="text-primary">智</strong><strong>信</strong></div>
+                    </a>
+                    <!-- Sidebar Toggle Btn-->
+                    <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+                </div>
+                <div class="right-menu list-inline no-margin-bottom">
+                   
+                    <!-- Tasks-->
+                    <div class="list-inline-item dropdown">
+   
+                    </div>
+                    <!-- Tasks end-->
+                    <!-- Megamenu-->
+                    <!-- Megamenu end     -->
+                    <!-- Log out               -->
+                    <div class="list-inline-item logout"><a id="logout" href="login.html" class="nav-link"> <span class="d-none d-sm-inline">退出 </span><i class="icon-logout"></i></a></div>
+                </div>
+                </div>
+        </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <h1 class="h5"><span id="name"></span></h1>
+            </div>
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
+                <li><a href="indexs.html"> <i class="icon-home"></i>仪表盘 </a></li>
+                <li class="active"><a href="tables.html"> <i class="icon-grid"></i>客户贷款申请 </a></li>
+                <li><a href="wshen.html"> <i class="fa fa-bar-chart"></i>我审核的申请 </a></li>
+                <li><a href="daishen.html"> <i class="icon-padnote"></i>待审核申请 </a></li>
+                </ul>
+        </nav>
+        <!-- Sidebar Navigation end-->
+        <div class="page-content">
+            <!-- Page Header-->
+            <div class="page-header no-margin-bottom">
+                <div class="container-fluid">
+                    <h2 class="h5 no-margin-bottom">Tables</h2>
+                </div>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item active">贷款申请</li>
+                </ul>
+            </div>
+            <section class="no-padding-top">
+                <div class="container-fluid" style="width:2450px;height:900px">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="block margin-bottom-sm">
+                                <div class="block margin-bottom-sm">
+                                    <div class="table-responsive" style="width:1150px;height:700px">
+                                        <img src="/MuBan/CarsImg/1.jpg" alt="" style="width:30px;height:30px" onclick="delAll()" />
+                                        <table class="table" style="text-align:center;border:double;font-size:13px" border="1">
+                                            <thead>
+                                                <tr style="color:lightsalmon">
+                                                    <th><input id="Checkbox1" type="checkbox" class="top" onclick="allSelect()" />全选/反选</th>
+                                                    <th>车辆照片</th>
+                                                    <th>用户名</th>
+                                                    <th>品牌名称</th>
+                                                    <th>是否二手车</th>
+                                                    <th>提交时间</th>
+                                                    <th>状态</th>
+                                                    <th>报价(单位:万元)</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tb">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/front.js"></script>
+</body>
+</html>
+
+<script>
+    
+    $(function () {
+        var n = getCookie("SName");
+        if (n == "") {
+            alert("请您先登录！");
+            location.href = "login.html";
+        }
+        $("#name").text(n);
+        show();
+        btnSta();
+    })
+    //显示
+    function show() {
+        $.ajax({
+            url: 'https://localhost:44356/api/Vehicle/GetVehicleInfos',
+            type: 'get',
+            success: function (data) {
+                $("#tb").empty();
+                $(data).each(function () {
+                    var line = "";
+                    line += '<tr>'
+                        + '<td><input id="Checkbox2" type="checkbox" class="ck" value="'+this.Cid+'" /></td>'
+                        + '<td><img src="' + this.Cimg + '" alt="" style="width:40px;height:35px" /></td>'
+                        + '<td>' + this.Utname + '</td>'
+                        + '<td>' + this.Bname + '</td>'
+                        + '<td>' + (this.Csf == false ? "否" : "是") + '</td>'
+                        + '<td>' + this.Ctime + '</td>'
+                        + '<td>' + status(this.Czt) + '<input id="hidZt" type="hidden" value="' + this.Czt + '" /><input id="hidFrt" type="hidden" value="' + this.Pgtime + '" /</td>'
+                        + '<td>' + this.Cbj + '</td>'
+                        + '<td><img src="/MuBan/CarsImg/2.jpg" alt="" onclick="del(' + this.Cid + ')" style="width:30px;height:30px" /><img id="btnThrough" src="/MuBan/CarsImg/5.jpg" alt="" onclick="edit(' + this.Cid + ')" style="width:30px;height:30px" /></td>'
+                        + '</tr>'
+                    $("#tb").append(line);
+                })
+            }
+        })
+    }
+
+    // 我们定义一个函数，用来读取特定的cookie值。［得到指定名字的cookie对象哦！］
+    function getCookie(name) {
+        var strCookie = unescape(document.cookie);
+        var arrCookie = strCookie.split("; ");
+        for (var i = 0; i < arrCookie.length; i++) {
+            var arr = arrCookie[i].split("=");
+            if (arr[0] == name) return arr[1];
+        }
+        return "";
+    }
+
+    //将状态显示为文字
+    function status(zt) {
+        if (zt == 1) {
+            return ('待审核')
+        }
+        if (zt == 2) {
+            return ('审核通过')
+        }
+        if (zt == 3) {
+            return ('审核未通过')
+        }
+        if (zt == 4) {
+            return ('已还款')
+        }
+        if (zt == 5) {
+            return ('未还款')
+        }
+    }
+
+    function btnSta() {
+        if ($("#hidZt").val() == 5) {
+            $("#Message").prop("disabled", false);
+        }
+    }
+
+
+
+    //全选和反选
+    function allSelect() {
+        if ($(".top").prop("checked")) {
+            $(".ck").prop("checked", true);
+        }
+        else {
+            $(".ck").each(function () {
+                this.checked = !this.checked;
+            })
+        }
+    }
+    //批量删除函数
+    function delAll() {
+        if (confirm("确认删除吗？")) {
+            //收集id
+            var ids = [];
+            $(".ck:checked").each(function () {
+                ids.push(this.value);
+            })
+            //
+            if (ids.length == 0) {
+                alert("请至少选中一条记录");
+                return false;
+            }
+            //利用ajax技术进行删除
+            $.ajax({
+                url: 'https://localhost:44356/api/Vehicle/DelVehicleInfos?id=' + ids.toString(),
+                type: 'post',
+                success: function (data) {
+                    alert('删除成功');
+                    show();
+                },
+                error: function (data) {
+                    alert('删除失败');
+                    show();
+                }
+            })
+        }
+        else {
+            return false;
+        }
+    }
+
+    //单删
+    function del(sid) {
+        if (confirm("确认删除吗?")) {
+            $.ajax({
+                url: 'https://localhost:44356/api/Vehicle/DelVehicleInfos?id=' +sid,
+                type: 'post',
+                success: function (data) {
+                    alert('删除成功');
+                    show();
+                },
+                error: function (data) {
+                    alert('删除失败');
+                    show();
+                }
+            })
+        }
+    }
+
+    //点击详情按钮
+    function edit(cid) {
+        location.href = "/MuBan/details.html?id=" + cid;
+    }
+
+</script>

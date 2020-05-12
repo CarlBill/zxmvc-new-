@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="css/font.css">
+    <!-- Google fonts - Muli-->
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+                        <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">智信</strong><strong>车贷管理系统</strong></div>
+                        <div class="brand-text brand-sm"><strong class="text-primary">智</strong><strong>信</strong></div>
+                    </a>
+                    <!-- Sidebar Toggle Btn-->
+                    <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+                </div>
+                <!-- Tasks-->
+                <!-- Tasks end-->
+                <!-- Megamenu-->
+                <!-- Megamenu end     -->
+                <!-- Log out               -->
+                <div class="list-inline-item logout"><a id="logout" href="login.html" class="nav-link" onclick="clear()"> <span class="d-none d-sm-inline">退出 </span><i class="icon-logout"></i></a></div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+        <!-- Sidebar Navigation-->
+        <nav id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h5"><span id="name"></span></h1>
+                    <p>管理员</p>
+                </div>
+            </div>
+            <ul class="list-unstyled">
+                <li class="active"><a href="index.html"><i  data-icon="f" class="icon"></i>仪表盘 </a></li>
+                <li><a href="shen.html"><i class="icon-settings"></i>审核员管理</a></li>
+                <li><a href="user.html"><i class="icon icon-user-outline"></i>客户信息</a></li>
+                <li><a href="userInfo.html"> <i class="icon-grid"></i>客户贷款信息 </a></li>
+            </ul>
+        </nav>
+        <!-- Sidebar Navigation end-->
+        <div class="page-content">
+            <div class="page-header">
+                <div class="container-fluid">
+                    <h2 class="h5 no-margin-bottom">仪表盘</h2>
+                </div>
+            </div>
+            <section class="no-padding-top no-padding-bottom">
+                <div class="container-fluid">
+                    <div class="row">
+                    </div>
+                </div>
+            </section>
+            <section class="no-padding-bottom">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="block margin-bottom-sm" style="width:1200px;height:900px">
+                                <div style="width:319px;height:148px;border: 2px double #A9C9E2;background-color:#E8F5FE;float:left;margin-left:20px">
+                                    <div style="float:left">
+                                        <span id="userCount" style="margin-top:15px;margin-left:20px;font-size:50px"></span>
+                                        <p style="margin-top:10px;margin-left:20px;">用户数量</p>
+                                    </div>
+                                    <div style="float:right;margin-right:10px;margin-top:15px"><img src="/MuBan/images/6.jpg" alt="" style="width:127px;height:101px" /></div>
+                                </div>
+                                <div style="width:319px;height:148px;background-color:#FFF5FA;border: 2px double #F8B3D0;float:left;margin-left:30px">
+                                    <div style="float:left">
+                                        <span id="cjNum" style="margin-top:15px;margin-left:20px;font-size:50px"></span>
+                                        <p style="margin-top:10px;margin-left:20px;">成交量</p>
+                                    </div>
+                                    <div style="float:right;margin-right:10px;margin-top:15px"><img src="/MuBan/images/4.png" alt="" style="width:127px;height:101px" /></div>
+                                </div>
+                                <div style="width:319px;height:148px;background-color:#EEF3F7;border: 2px double #A5B6C8;float:left;margin-left:30px">
+                                    <div style="float:left">
+                                        <span id="cjMoney" style="margin-top:15px;margin-left:20px;font-size:50px"></span>
+                                        <p style="margin-top:10px;margin-left:20px;">成交额(单位:万元)</p>
+                                    </div>
+                                    <div style="float:right;margin-right:10px;margin-top:15px"><img src="/MuBan/images/7.jpg" alt="" style="width:127px;height:101px" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <script src="js/front.js"></script>
+</body>
+</html>
+
+<script>
+    //文档就绪函数
+    $(function () {
+        var n = getCookie("uName");
+        if (n=="") {
+            alert("请您先登录！");
+            location.href = "login.html";
+        }
+        $("#name").text(n);
+        userCount();
+        cjCount();
+        cjMoney();
+    })
+
+    // 我们定义一个函数，用来读取特定的cookie值。［得到指定名字的cookie对象哦！］
+    function getCookie(name) {
+        var strCookie = document.cookie;
+        var arrCookie = strCookie.split("; ");
+        for (var i = 0; i < arrCookie.length; i++) {
+            var arr = arrCookie[i].split("=");
+            if (arr[0] == name) return arr[1];
+        }
+        return "";
+    }
+
+    function clear() {
+
+    }
+
+
+    //用户数量
+    function userCount() {
+        $.ajax({
+            url: 'https://localhost:44356/api/ZXLoan/PostUserValue',
+            type: 'get',
+            success: function (data) {
+                $("#userCount").empty();
+                $("#userCount").append(data);
+            }
+        })
+    }
+
+
+
+    //成交量
+    function cjCount() {
+        $.ajax({
+            url: 'https://localhost:44356/api/ZXLoan/PostCjCount',
+            type: 'get',
+            success: function (data) {
+                $("#cjNum").empty();
+                $("#cjNum").append(data);
+            }
+        })
+    }
+
+    //成交额
+    function cjMoney() {
+        $.ajax({
+            url: 'https://localhost:44356/api/ZXLoan/PostCjMoney',
+            type: 'get',
+            success: function (data) {
+                $("#cjMoney").empty();
+                $("#cjMoney").append(data);
+            }
+        })
+    }
+</script>
